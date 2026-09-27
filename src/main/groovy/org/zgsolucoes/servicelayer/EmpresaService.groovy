@@ -30,14 +30,21 @@ class EmpresaService {
                     Localizaçao: ${empresa.estado}, ${empresa.pais} (CEP: ${empresa.cep}
                     Descriçao: ${empresa.descricao}"""
 
-            def listaCompetencias = empresa.competencias*nomeExibicao.join(", ")
+            def listaCompetencias = empresa.competencias*.nomeExibicao.join(", ")
             println "Comptencias Esperadas: [${listaCompetencias}]"
         }
     }
 
     void cadastrarEmpresa(Empresa novaEmpresa) {
+
+        if (novaEmpresa == null) {
+            throw new IllegalArgumentException("A empresa nao pode ser nula")
+        }
+        if (novaEmpresa.nome == null || novaEmpresa.nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("O nome da empresa e obrigatorio")
+        }
+
         empresaRepository.adicionar(novaEmpresa)
-        println "Empresa '${novaEmpresa.nome}' cadastrada com sucesso"
     }
 
 }

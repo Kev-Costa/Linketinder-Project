@@ -36,8 +36,15 @@ class CandidatoService {
     }
 
     void cadastrarCandidato(Candidato novoCandidato) {
+
+        if (novoCandidato == null) {
+            throw new IllegalArgumentException("O candidato nao pode ser nulo")
+        }
+        if (novoCandidato.nome == null || novoCandidato.nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("O nome do candidato 'e obrigatorio")
+        }
+
         candidatoRepository.adicionar(novoCandidato)
-        println "Candidato '${novoCandidato.nome}' cadastrado com sucesso"
     }
 
 }
