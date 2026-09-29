@@ -1,7 +1,6 @@
-import org.zgsolucoes.model.Candidato
 import org.zgsolucoes.model.CompetenciaEnum
 import org.zgsolucoes.model.Empresa
-import org.zgsolucoes.servicelayer.EmpresaService
+import org.zgsolucoes.service.EmpresaService
 import spock.lang.Specification
 
 class EmpresaServiceSpec extends Specification {
@@ -37,7 +36,7 @@ class EmpresaServiceSpec extends Specification {
         empresaService.listarTodas().contains(novaEmpresa)
     }
 
-    def "deve lancar IllegalArgumentException ao tentar cadastrar candidato nulo"() {
+    def "deve lancar IllegalArgumentException ao tentar cadastrar empresa nula"() {
         when: "tenta cadastrar uma empresa nula"
         empresaService.cadastrarEmpresa()
 

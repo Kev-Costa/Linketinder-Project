@@ -3,8 +3,8 @@ package org.zgsolucoes.cli
 import org.zgsolucoes.model.Candidato
 import org.zgsolucoes.model.CompetenciaEnum
 import org.zgsolucoes.model.Empresa
-import org.zgsolucoes.servicelayer.CandidatoService
-import org.zgsolucoes.servicelayer.EmpresaService
+import org.zgsolucoes.service.CandidatoService
+import org.zgsolucoes.service.EmpresaService
 
 class MenuCLI {
 

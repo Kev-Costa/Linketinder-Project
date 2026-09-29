@@ -1,4 +1,4 @@
-package org.zgsolucoes.servicelayer
+package org.zgsolucoes.service
 
 import org.zgsolucoes.model.Empresa
 import org.zgsolucoes.repository.EmpresaRepository

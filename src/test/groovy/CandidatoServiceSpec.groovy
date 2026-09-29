@@ -1,6 +1,6 @@
 import org.zgsolucoes.model.Candidato
 import org.zgsolucoes.model.CompetenciaEnum
-import org.zgsolucoes.servicelayer.CandidatoService
+import org.zgsolucoes.service.CandidatoService
 import spock.lang.Specification
 
 class CandidatoServiceSpec extends Specification {
