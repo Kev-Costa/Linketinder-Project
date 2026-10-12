@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Linketinder - Painel do Candidato</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <button class="btn btn-voltar" onclick="window.location.href='index.html'">⬅ Início</button>
+        <button class="btn danger" onclick="window.fazerLogout()">🚪 Sair (Logout)</button>
+    </div>
+
+    <h2>Painel do Candidato</h2>
+    <p>Explore abaixo as vagas disponíveis cadastradas pelas empresas parceiras:</p>
+
+    <h3>Vagas Disponíveis no Mercado</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Empresa</th>
+            <th>Título da Vaga</th>
+            <th>Descrição</th>
+            <th>Competências Desejadas</th>
+        </tr>
+        </thead>
+        <tbody id="tabela-vagas-candidato">
+        <!-- Preenchido via TypeScript -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    window.fazerLogout = function() {
+        localStorage.removeItem('linketinder_usuario_logado');
+        window.location.href = 'login.html';
+    };
+</script>
+<script src="dist/candidato-bundle.js"></script>
+</body>
+</html>

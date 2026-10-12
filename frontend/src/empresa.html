@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Linketinder - Painel da Empresa</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <button class="btn btn-voltar" onclick="window.location.href='index.html'">⬅ Início</button>
+        <button class="btn danger" onclick="window.fazerLogout()">🚪 Sair (Logout)</button>
+    </div>
+
+    <h2>Painel Corporativo</h2>
+    <p>Gerencie candidatos e visualize métricas estatísticas de talentos disponíveis.</p>
+
+    <h3>Candidatos Cadastrados (Modo Anônimo)</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Identificação</th>
+            <th>Formação Acadêmica</th>
+            <th>Competências & Perfil</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody id="tabela-candidatos-empresa">
+        <!-- Preenchido via TypeScript -->
+        </tbody>
+    </table>
+
+    <h3 style="margin-top: 40px;">Estatística: Candidatos por Competência</h3>
+    <div id="grafico-competencias" class="chart-container">
+        <!-- Gráfico gerado dinamicamente -->
+    </div>
+</div>
+
+<script>
+    window.fazerLogout = function() {
+        localStorage.removeItem('linketinder_usuario_logado');
+        window.location.href = 'login.html';
+    };
+</script>
+<script src="dist/empresa-bundle.js"></script>
+</body>
+</html>

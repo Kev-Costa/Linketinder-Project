@@ -1,0 +1,372 @@
+:root {
+    --primary-color: #0a66c2;
+    --primary-hover: #004182;
+    --secondary-color: #6c757d;
+    --success-color: #057642;
+    --success-hover: #045a33;
+    --danger-color: #cc1016;
+    --danger-hover: #a80d12;
+    --bg-color: #f3f2ef;
+    --card-bg: #ffffff;
+    --text-main: #191919;
+    --text-muted: #666666;
+    --border-color: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid var(--border-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Header & Tipografia */
+h1 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+h3 {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ---------- LANDING PAGE (index.html) ---------- */
+.hero-section {
+    padding: 20px 10px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.feature-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 24px 20px;
+    flex: 1;
+    min-width: 240px;
+    max-width: 320px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    background: #fff;
+}
+
+.feature-card span.icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature-card h4 {
+    color: var(--text-main);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.feature-card p {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+/* ---------- TELA DE LOGIN (login.html) ---------- */
+.login-box {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.test-credentials {
+    margin-top: 30px;
+    background: #f0f4f8;
+    border-left: 4px solid var(--primary-color);
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.test-credentials code {
+    background: #e1e9f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: 600;
+    color: var(--primary-hover);
+}
+
+/* ---------- FORMULÁRIOS & CAMPOS ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    gap: 6px;
+}
+
+input, select, textarea {
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: #fafafa;
+    color: var(--text-main);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* ---------- BOTÕES & AÇÕES ---------- */
+button, .btn {
+    background: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 12px 22px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.btn-large {
+    padding: 14px 28px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn-success {
+    background: var(--success-color);
+}
+.btn-success:hover {
+    background: var(--success-hover);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.btn-secondary:hover {
+    background: rgba(10, 102, 194, 0.05);
+}
+
+.danger {
+    background: var(--danger-color);
+    padding: 8px 14px;
+    font-size: 12px;
+}
+.danger:hover {
+    background: var(--danger-hover);
+}
+
+.btn-voltar {
+    background: var(--secondary-color);
+    padding: 8px 16px;
+    font-size: 13px;
+}
+.btn-voltar:hover {
+    background: #545b62;
+}
+
+.actions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.actions-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* ---------- TABELAS ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+th, td {
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: #f8f9fa;
+    color: var(--text-main);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f3f6f8;
+}
+
+/* ---------- TOOLTIP ---------- */
+.tooltip-trigger {
+    position: relative;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.tooltip-content {
+    display: none;
+    position: absolute;
+    background: #191919;
+    color: #ffffff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    z-index: 10;
+    bottom: 125%;
+    left: 0;
+    width: 240px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    line-height: 1.4;
+}
+
+.tooltip-trigger:hover .tooltip-content {
+    display: block;
+}
+
+/* ---------- GRÁFICO DE BARRAS ---------- */
+.chart-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    height: 220px;
+    margin-top: 30px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0;
+    justify-content: center;
+}
+
+.bar {
+    background-color: var(--primary-color);
+    width: 55px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    transition: height 0.3s ease, background-color 0.2s;
+}
+
+.bar:hover {
+    background-color: var(--primary-hover);
+}
+
+.bar span {
+    position: absolute;
+    top: -24px;
+    left: 0;
+    right: 0;
+    color: var(--text-main);
+    font-weight: bold;
+}

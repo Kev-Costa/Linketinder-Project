@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Linketinder - Entrar</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+<div class="container login-box">
+    <button class="btn btn-voltar" onclick="window.location.href='index.html'">⬅ Voltar ao Início</button>
+
+    <div class="login-header">
+        <h2>🔑 Acessar Conta</h2>
+        <p>Informe suas credenciais para acessar o painel correspondente.</p>
+    </div>
+
+    <div id="form-login">
+        <label>E-mail:
+            <input type="email" id="email" placeholder="seu@email.com" required>
+        </label>
+        <label>Senha:
+            <input type="password" id="senha" placeholder="••••••••" required>
+        </label>
+        <button type="button" id="btn-login" class="btn btn-large">Entrar</button>
+    </div>
+
+    <div class="actions-container">
+        <p style="margin-bottom: 5px;">Primeira vez no Linketinder?</p>
+        <div class="actions-row">
+            <a href="cadastro-candidato.html" class="btn btn-success" style="flex: 1;">Novo Candidato</a>
+            <a href="cadastro-empresa.html" class="btn btn-secondary" style="flex: 1;">Nova Empresa</a>
+        </div>
+    </div>
+
+    <div class="test-credentials">
+        <b>💡 Contas de Teste Pré-cadastradas:</b><br>
+        • <b>Candidato:</b> <code>candidato@email.com</code> / Senha: <code>123</code><br>
+        • <b>Empresa:</b> <code>empresa@email.com</code> / Senha: <code>123</code>
+    </div>
+</div>
+
+<!-- Script integrado que lê diretamente do StorageService do navegador -->
+<script>
+    document.getElementById('btn-login').addEventListener('click', function() {
+        const email = document.getElementById('email').value.trim();
+        const senha = document.getElementById('senha').value.trim();
+
+        if (!email || !senha) {
+            alert('Por favor, preencha o e-mail e a senha.');
+            return;
+        }
+
+        // Lê os dados salvos no LocalStorage (mesma lógica do StorageService)
+        const candidatosData = localStorage.getItem('linketinder_candidatos');
+        const empresasData = localStorage.getItem('linketinder_empresas');
+
+        const candidatos = candidatosData ? JSON.parse(candidatosData) : [];
+        const empresas = empresasData ? JSON.parse(empresasData) : [];
+
+        // Verifica se é Candidato
+        const candidatoEncontrado = candidatos.find(c => c.email === email && (c.senha === senha || !c.senha));
+        if (candidatoEncontrado) {
+            localStorage.setItem('linketinder_usuario_logado', JSON.stringify({
+                id: candidatoEncontrado.id,
+                nome: candidatoEncontrado.nome,
+                tipo: 'candidato'
+            }));
+            window.location.href = 'candidato.html';
+            return;
+        }
+
+        // Verifica se é Empresa
+        const empresaEncontrada = empresas.find(e => e.email === email && (e.senha === senha || !e.senha));
+        if (empresaEncontrada) {
+            localStorage.setItem('linketinder_usuario_logado', JSON.stringify({
+                id: empresaEncontrada.id,
+                nome: empresaEncontrada.nome,
+                tipo: 'empresa'
+            }));
+            window.location.href = 'empresa.html';
+            return;
+        }
+
+        // Credenciais de fallback padrão caso o storage esteja vazio
+        if (email === "candidato@email.com" && senha === "123") {
+            localStorage.setItem('linketinder_usuario_logado', JSON.stringify({ id: "1", nome: "Lucas Silva", tipo: 'candidato' }));
+            window.location.href = 'candidato.html';
+            return;
+        }
+        if (email === "empresa@email.com" && senha === "123") {
+            localStorage.setItem('linketinder_usuario_logado', JSON.stringify({ id: "e1", nome: "MegaSystems", tipo: 'empresa' }));
+            window.location.href = 'empresa.html';
+            return;
+        }
+
+        alert('E-mail ou senha incorretos. Verifique suas credenciais.');
+    });
+</script>
+</body>
+</html>
